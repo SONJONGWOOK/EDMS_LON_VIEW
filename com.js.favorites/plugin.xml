@@ -56,8 +56,7 @@
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             adaptable="true"
-            id="com.js.favorites.popupMenu" 
-            nameFilter="*.java"
+            id="com.js.favorites.popupMenu"
             objectClass="org.eclipse.core.resources.IResource">
          <action
                class="com.js.favorites.actions.AddToFavoritesActionDelegate"
