@@ -79,7 +79,7 @@ public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IVie
 		// TODO Auto-generated method stub
 		this.targetPart = targetPart;
 		
-	}
+	}                                                                                                                                 
 
 	@Override
 	public void init(IViewPart view) {

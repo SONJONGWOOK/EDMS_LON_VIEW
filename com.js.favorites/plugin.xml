@@ -16,6 +16,17 @@
             category="com.js.favorites"
             inject="true">
       </view>
+      <view
+            allowMultiple="false"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            id="com.js.favorites.bpr.view"
+            name="bpr_testView"
+            restorable="true">
+      </view>
+      <category
+            id="com.js.favorites.bpr.category"
+            name="bpr_test">
+      </category>
    </extension>
    <extension
          point="org.eclipse.ui.actionSets">
