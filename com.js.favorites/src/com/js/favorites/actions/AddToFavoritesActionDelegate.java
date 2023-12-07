@@ -11,11 +11,13 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IObjectActionDelegate;
+import org.eclipse.ui.IViewActionDelegate;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-public class AddToFavoritesActionDelegate implements IObjectActionDelegate {
+public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IViewActionDelegate{
 	
 	private IWorkbenchPart targetPart;
 	private IProject project;
@@ -60,10 +62,6 @@ public class AddToFavoritesActionDelegate implements IObjectActionDelegate {
 	            System.out.println(path);
 	        }
 	    }
-	    
-	    
-		
-	
 		
 		
 	}
@@ -78,6 +76,16 @@ public class AddToFavoritesActionDelegate implements IObjectActionDelegate {
 	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
 		// TODO Auto-generated method stub
 		this.targetPart = targetPart;
+		
+	}
+
+	@Override
+	public void init(IViewPart view) {
+		// TODO Auto-generated method stub
+		System.out.println("iVeiwPart init");
+		System.out.println(view);
+		this.targetPart = view;
+//		MessageDialog.openInformation(this.targetPart.getSite().getShell(),"add to Favorites " , "triggered the " + getClass().getName() + " action");
 		
 	}
 

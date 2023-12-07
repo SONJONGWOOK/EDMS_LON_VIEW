@@ -16,12 +16,6 @@
             category="com.js.favorites"
             inject="true">
       </view>
-      <view
-            class="org.eclipse.ui.navigator.CommonNavigator"
-            icon="icons/sample.png"
-            id="com.example.test"
-            name="My Common Navigator">
-      </view>
    </extension>
    <extension
          point="org.eclipse.ui.actionSets">
@@ -79,6 +73,35 @@
             </separator>
          </menu>
       </objectContribution>
+      <viewerContribution
+            id="com.js.favorites.membersViewPopup"
+            targetID="org.eclipse.jdt.ui.MembersView">
+         <menu
+               id="com.js.favorites.membersViewPopupSubmenu"
+               label="Favorites"
+               path="additions">
+            <groupMarker
+                  name="content">
+            </groupMarker>
+            <separator
+                  name="additions">
+            </separator>
+         </menu>
+         <action
+               class="com.js.favorites.actions.AddToFavoritesActionDelegate"
+               id="com.js.favorites.addToFavoritesInMembersView"
+               label="Add"
+               menubarPath="com.js.favorites.membersViewPopupSubmenu/content"
+               tooltip="Add in members">
+         </action>
+      </viewerContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editorActions">
+      <editorContribution
+            id="com.js.favorites.compilationUnitEditorActions"
+            targetID="org.eclipse.jdt.ui.CompilationUnitEditor">
+      </editorContribution>
    </extension>
 
 </plugin>
