@@ -101,6 +101,26 @@
       <editorContribution
             id="com.js.favorites.compilationUnitEditorActions"
             targetID="org.eclipse.jdt.ui.CompilationUnitEditor">
+         <menu
+               id="com.js.favorites.compilationUnitEditorPopupSubMenu"
+               label="favoritesEditor"
+               path="additions">
+            <separator
+                  name="additions">
+            </separator>
+            <groupMarker
+                  name="content">
+            </groupMarker>
+         </menu>
+         <action
+               class="com.js.favorites.actions.AddToFavoritesActionDelegate"
+               id="com.js.favorites.addToFavoritesInCompilationUnitEditor"
+               label="add"
+               menubarPath="com.js.favorites.compilationUnitEditorPopupSubMenu/content"
+               style="push"
+               toolbarPath="Normal/additions"
+               tooltip="editor Test">
+         </action>
       </editorContribution>
    </extension>
 

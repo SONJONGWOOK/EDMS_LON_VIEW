@@ -10,6 +10,8 @@ import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.ui.IEditorActionDelegate;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IObjectActionDelegate;
 import org.eclipse.ui.IViewActionDelegate;
 import org.eclipse.ui.IViewPart;
@@ -17,7 +19,7 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
-public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IViewActionDelegate{
+public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IViewActionDelegate , IEditorActionDelegate{
 	
 	private IWorkbenchPart targetPart;
 	private IProject project;
@@ -50,18 +52,18 @@ public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IVie
 		
 		System.out.println("######## " + project);
 		
-		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-	    if (window != null)
-	    {
-	        IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
-	        Object firstElement = selection.getFirstElement();
-	        if (firstElement instanceof IAdaptable)
-	        {
-	            IProject project = (IProject)((IAdaptable)firstElement).getAdapter(IProject.class);
-	            IPath path = project.getFullPath();
-	            System.out.println(path);
-	        }
-	    }
+//		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+//	    if (window != null)
+//	    {
+//	        IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+//	        Object firstElement = selection.getFirstElement();
+//	        if (firstElement instanceof IAdaptable)
+//	        {
+//	            IProject project = (IProject)((IAdaptable)firstElement).getAdapter(IProject.class);
+//	            IPath path = project.getFullPath();
+//	            System.out.println(path);
+//	        }
+//	    }
 		
 		
 	}
@@ -87,6 +89,15 @@ public class AddToFavoritesActionDelegate implements IObjectActionDelegate, IVie
 		this.targetPart = view;
 //		MessageDialog.openInformation(this.targetPart.getSite().getShell(),"add to Favorites " , "triggered the " + getClass().getName() + " action");
 		
+	}
+
+	
+	
+	@Override
+	public void setActiveEditor(IAction action, IEditorPart targetEditor) {
+		// TODO Auto-generated method stub
+		System.out.println("set Active Editor");
+		this.targetPart = targetEditor;
 	}
 
 
